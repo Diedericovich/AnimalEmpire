@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AnimalEmpire
+﻿namespace AnimalEmpire
 {
-    class Animal
+    public abstract class Animal
     {
         public double Weight { get; set; }
 
-        public string Name { get; set; }
+        public string AnimalName { get; set; }
 
         public int Age { get; set; }
 
-        public void ShowInfo ()
+        public virtual string ShowInfo()
         {
-
+            return $"{GetType().Name} {AnimalName} is {Age} years old, and weighs about {Weight} kilo.";
         }
 
+        public Animal(double Weight, string Name)
+        {
+            this.Weight = Weight;
+            this.AnimalName = Name;
+        }
     }
 }
